@@ -1,0 +1,460 @@
+/* --- Core Properties & Color Variables --- */
+:root {
+    --primary-dark: #002D5C; 
+    --accent-teal: #00A896;  
+    --accent-hover: #028A7B;
+    --text-main: #333333;
+    --text-muted: #666666;
+    --bg-light: #F4F9F9; 
+    --white: #FFFFFF;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+@media (max-width: 768px) {
+    .section-padding { padding: 60px 0; }
+}
+
+.text-center { text-align: center; }
+.bg-light { background-color: var(--bg-light); }
+.bg-dark { background-color: var(--primary-dark); color: var(--white); }
+.link-light { color: var(--white); text-decoration: none; transition: var(--transition); }
+.link-light:hover { color: var(--accent-teal); }
+
+/* --- Floating Elements --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    text-decoration: none;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    background-color: #20BA5A;
+}
+
+/* --- Floating Booking Button --- */
+.booking-float {
+    position: fixed;
+    bottom: 30px;
+    left: 30px; /* Placed on the left to balance the WhatsApp button on the right */
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+    text-decoration: none;
+}
+
+.booking-float:hover {
+    transform: translateY(-3px);
+    background-color: var(--accent-teal);
+    box-shadow: 0 8px 20px rgba(0, 168, 150, 0.3);
+    color: var(--white);
+}
+
+/* Make sure the text color stays white on hover */
+.booking-float:hover i,
+.booking-float:hover span {
+    color: var(--white);
+}
+
+/* --- UI Buttons --- */
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--accent-teal);
+    color: var(--white);
+    box-shadow: 0 8px 16px rgba(0, 168, 150, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 20px rgba(0, 168, 150, 0.3);
+}
+
+.btn-secondary {
+    background: rgba(255,255,255,0.1);
+    color: var(--white);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--primary-dark);
+}
+
+/* --- Responsive Navigation Structure --- */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0; left: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+/* --- Logo Styling --- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Space between the image and the text */
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-dark);
+    text-decoration: none; /* In case you wrap it in an <a> tag later */
+}
+
+.logo-img {
+    height: 70px; /* Adjust this to make your logo bigger or smaller */
+    width: 70px; /* Forces a perfect square */
+    object-fit: cover; /* Prevents the image from stretching */
+    border-radius: 50%; /* Optional: Makes the logo a perfect circle. Remove this line if you want a square logo! */
+}
+
+.logo .dot { 
+    color: var(--accent-teal); 
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 32px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 15px;
+    transition: var(--transition);
+}
+.nav-links a:hover { color: var(--accent-teal); }
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary-dark);
+    padding: 5px;
+}
+
+/* Laptop/Desktop Only Visibility helper */
+@media (min-width: 769px) {
+    .desktop-only { display: inline-flex; }
+	.booking-float {
+        bottom: 20px;
+        left: 20px;
+        padding: 10px 18px;
+        font-size: 14px;
+    }
+}
+
+/* --- Hero Module --- */
+.hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: url('https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+    background-attachment: fixed; 
+    padding-top: 80px;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(0, 45, 92, 0.95), rgba(0, 45, 92, 0.65));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: var(--white);
+    max-width: 750px;
+}
+
+.rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(0, 168, 150, 0.4);
+    color: #40E0D0;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+.hero h1 { font-size: 52px; font-weight: 700; line-height: 1.15; margin-bottom: 20px; }
+.hero p { font-size: 18px; margin-bottom: 32px; color: #E0E8F0; }
+.hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* --- Fluid Grid Systems (Responsive-First) --- */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.doc-name { font-size: 32px; color: var(--primary-dark); margin-bottom: 16px; }
+.about-text p { margin-bottom: 16px; color: var(--text-muted); }
+.doc-highlights { list-style: none; margin-top: 24px; }
+.doc-highlights li {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.doc-highlights i { color: var(--accent-teal); font-size: 18px; }
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+/* --- Specialities Layout Fixing Bug #1 --- */
+.section-header { margin-bottom: 48px; }
+.section-header h2 { font-size: 36px; color: var(--primary-dark); margin-bottom: 8px; }
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: var(--white);
+    padding: 40px 24px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+    transition: var(--transition);
+    border-bottom: 4px solid transparent;
+    opacity: 1; /* Keep visibility safe before JS injection kicks in */
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    border-bottom: 4px solid var(--accent-teal);
+}
+
+/* --- Review Structure Optimization --- */
+.review-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+.review-card {
+    background: var(--bg-light);
+    padding: 32px;
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-teal);
+    height: fit-content;
+}
+.review-card.featured {
+    grid-column: 1 / -1; /* Makes the new Avni review take full grid row */
+    background: #EBF4F4;
+}
+.stars { color: #FFD700; margin-bottom: 16px; font-size: 16px; }
+.review-text { font-size: 16px; font-weight: 500; color: var(--primary-dark); }
+.review-card p { font-style: italic; margin-bottom: 16px; }
+.review-card h4 { color: var(--primary-dark); font-size: 16px; }
+.platform-tag { display: inline-block; font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+
+/* --- Contact & Contact Layout Grid --- */
+.visit-grid {
+    display: grid;
+    grid-template-columns: 10fr 11fr;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+.visit-info { background: var(--primary-dark); padding: 48px; }
+.visit-info h2 { font-size: 32px; margin-bottom: 32px; color: var(--accent-teal); }
+.info-item { display: flex; gap: 16px; margin-bottom: 24px; }
+.info-item i { font-size: 20px; color: var(--accent-teal); margin-top: 4px; }
+.info-item h4 { font-size: 16px; margin-bottom: 4px; font-weight: 600; }
+.info-item p { color: #D0D8E0; font-size: 14px; }
+.map-container { min-height: 380px; width: 100%; }
+
+footer { background: #001E3D; color: #8096AD; padding: 32px 0; }
+footer .logo { color: var(--white); margin-bottom: 8px; }
+
+/* --- Mobile Responsiveness Layer (Solves Issue #0) --- */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 40px; }
+    .about-grid, .visit-grid { grid-template-columns: 1fr; }
+    .visit-grid { grid-template-columns: 1fr; }
+    .map-container { height: 320px; }
+}
+
+@media (max-width: 768px) {
+    .hamburger { display: block; }
+    
+    .nav-menu {
+        position: fixed;
+        top: 80px; left: -100%;
+        width: 100%; height: calc(100vh - 80px);
+        background: var(--white);
+        transition: 0.4s ease-in-out;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    }
+    
+    .nav-menu.active { left: 0; }
+    
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 0;
+        gap: 24px;
+    }
+    
+    .nav-links a { font-size: 18px; width: 100%; display: block; text-align: center; }
+    .desktop-only { display: none; }
+    .hero { background-attachment: scroll; }
+    .hero h1 { font-size: 34px; }
+    .review-grid { grid-template-columns: 1fr; }
+    .visit-info { padding: 32px 24px; }
+    .whatsapp-float { bottom: 20px; right: 20px; width: 52px; height: 52px; font-size: 26px; }
+}
+
+/* --- Clinic Gallery Slider --- */
+/* Update this block in your style.css */
+.clinic-swiper {
+    width: 100%;
+    max-width: 100%; /* Let it stretch to fit multiple images! */
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    background: var(--bg-light);
+    padding-bottom: 50px; /* Gives breathing room for the pagination dots */
+}
+
+/* Optional: Make the dots position nicely below the images */
+.clinic-swiper .swiper-pagination {
+    bottom: 10px !important;
+}
+
+.clinic-swiper .swiper-slide {
+    aspect-ratio: 1 / 1; /* Forces perfect square ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clinic-swiper .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Crops image perfectly to fit square without squishing */
+}
+
+/* Customizing the Swiper Navigation Buttons */
+.clinic-swiper .swiper-button-next, 
+.clinic-swiper .swiper-button-prev {
+    color: var(--primary-dark);
+    background: rgba(255, 255, 255, 0.85);
+    width: 44px; 
+    height: 44px;
+    border-radius: 50%;
+    backdrop-filter: blur(5px);
+    transition: var(--transition);
+}
+
+.clinic-swiper .swiper-button-next:hover, 
+.clinic-swiper .swiper-button-prev:hover {
+    background: var(--accent-teal);
+    color: var(--white);
+}
+
+.clinic-swiper .swiper-button-next:after, 
+.clinic-swiper .swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.clinic-swiper .swiper-pagination-bullet-active {
+    background: var(--accent-teal);
+}
